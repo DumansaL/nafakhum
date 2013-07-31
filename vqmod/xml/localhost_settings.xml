@@ -1,0 +1,25 @@
+<modification>
+
+    <id>Avoid email notice in localhost 1.5.1.3</id>
+    <version>1.0.0</version>
+    <vqmver>2</vqmver>
+    <author>NHD</author>
+
+    <file name="system/library/mail.php">
+        <operation>
+            <search position="replace"><![CDATA[mail($to, '=?UTF-8?B?' . base64_encode($this->subject) . '?=', $message, $header);]]></search>
+            <add><![CDATA[//mail($to, '=?UTF-8?B?' . base64_encode($this->subject) . '?=', $message, $header);]]></add>
+        </operation>
+    </file>
+
+    <file name="system/library/mail.php">
+        <operation>
+            <search position="replace"><![CDATA[mail($to, '=?UTF-8?B?' . base64_encode($this->subject) . '?=', $message, $header, $this->parameter);]]></search>
+            <add><![CDATA[//mail($to, '=?UTF-8?B?' . base64_encode($this->subject) . '?=', $message, $header, $this->parameter);]]></add>
+        </operation>
+    </file>
+		
+</modification>
+
+
+
